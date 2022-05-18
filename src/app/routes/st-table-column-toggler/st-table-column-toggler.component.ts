@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { STColumn, STComponent } from '@delon/abc/st';
-import * as _ from 'lodash';
-
+import { deepCopy } from '@delon/util';
 @Component({
   selector: 'app-st-table-column-toggler',
   templateUrl: './st-table-column-toggler.component.html',
@@ -35,7 +34,7 @@ export class StTableColumnTogglerComponent {
     columns: STColumn[]
   }): void {
     this.st = option.table;
-    this.columnBackup = _.cloneDeep(option.columns);
+    this.columnBackup = deepCopy(option.columns);
     this.nodes = this.generateSelectNodes(option.columns);
     this.analyzeColumnsInfo(option.columns);
   }
@@ -164,7 +163,7 @@ export class StTableColumnTogglerComponent {
   private refreshColumns(): void {
     const columns: STColumn[] = [];
     this.columnBackup?.forEach(c => {
-      const nc = this.generateColumns(_.cloneDeep(c));
+      const nc = this.generateColumns(deepCopy(c));
       if (nc) {
         columns.push(nc);
       }
