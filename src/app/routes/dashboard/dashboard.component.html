@@ -1,14 +1,11 @@
 <page-header></page-header>
 
 <div class="mb-md">
-  <nz-checkbox-group
-    [(ngModel)]="customColumns"
-    name="customColumns"
-    (ngModelChange)="st.resetColumns({ emitReload: true })"
-  ></nz-checkbox-group>
+  <nz-tree-select style="width: 250px" [(ngModel)]="value" [nzNodes]="nodes" nzShowSearch nzCheckable
+    nzPlaceHolder="Please select" (ngModelChange)="test($event)"></nz-tree-select>
 </div>
 
-<st #st [data]="users" [columns]="columns">
+<st #st [data]="[]" [columns]="columns">
   <ng-template st-row="customTitle" type="title" let-c>
     {{ c.title.text }}
     <span nz-dropdown [nzDropdownMenu]="menuTpl" nzTrigger="click" [nzClickHide]="false" nzPlacement="bottomRight">
@@ -16,7 +13,8 @@
     </span>
     <nz-dropdown-menu #menuTpl="nzDropdownMenu">
       <div class="ant-table-filter-dropdown p-sm">
-        <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" name="searchValue" class="width-sm mr-sm" />
+        <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" name="searchValue"
+          class="width-sm mr-sm" />
         <button nz-button [nzType]="'primary'" (click)="st.load(2)">Search</button>
       </div>
     </nz-dropdown-menu>
