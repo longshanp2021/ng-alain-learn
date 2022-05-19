@@ -12,7 +12,8 @@ export class TestComponent implements OnInit {
 
 
   @ViewChild('st', { static: true }) private readonly st!: STComponent;
-  @ViewChild('toggler', { static: true }) private readonly toggler!: StTableColumnTogglerComponent;
+  // 如果不想设置模板引用变量,那么可以直接使用component class这个是ViewChild()基础知识
+  @ViewChild(StTableColumnTogglerComponent, { static: true }) private readonly toggler!: StTableColumnTogglerComponent;
   columns: STColumn[] = [
     { title: '行政区', index: 'area', className: 'text-center text-truncate', width: '120px' },
     { title: '乡镇', index: 'street', className: 'text-center text-truncate', width: '120px' },
