@@ -1,8 +1,10 @@
 <page-header></page-header>
 
 <div class="mb-md buttons">
-  <button class="btn" nz-button nzType="primary" (click)="toggleAreaColumnVisible()">切换区域列的显示</button>
   <app-st-table-column-toggler #toggler class="btn"></app-st-table-column-toggler>
+  <button class="btn" nz-button nzType="primary" (click)="toggleAreaColumnVisible()">切换区域列的显示</button>
+  <button class="btn" nz-button (click)="ShowAreaColumn()">显示区域列</button>
+  <button class="btn" nz-button (click)="HideAreaColumn()">隐藏区域列</button>
 </div>
 
 <st #st [data]="[]" [columns]="columns">
