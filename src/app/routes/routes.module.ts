@@ -14,6 +14,7 @@ import { NzTreeModule } from 'ng-zorro-antd/tree';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { StTableColumnTogglerComponent } from './st-table-column-toggler/st-table-column-toggler.component';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { TestComponent } from './test/test.component';
 
 const COMPONENTS: Array<Type<void>> = [
   DashboardComponent,
@@ -24,7 +25,8 @@ const COMPONENTS: Array<Type<void>> = [
   // single pages
   CallbackComponent,
   UserLockComponent,
-  StTableColumnTogglerComponent
+  StTableColumnTogglerComponent,
+  TestComponent
 ];
 
 @NgModule({
