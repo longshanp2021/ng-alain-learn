@@ -112,11 +112,11 @@ export class DashboardComponent implements OnInit {
     this.toggler.toggleColumnVisible('area');
   }
 
-  ShowAreaColumn() {
+  showAreaColumn() {
     this.toggler.toggleColumnVisible('area', true);
   }
 
-  HideAreaColumn() {
+  hideAreaColumn() {
     this.toggler.toggleColumnVisible('area', false);
   }
 }
