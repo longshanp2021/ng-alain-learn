@@ -1,11 +1,12 @@
-<!-- <nz-tree-select style="width: 250px" [(ngModel)]="selected" [nzNodes]="nodes" nzShowSearch nzCheckable
-    nzPlaceHolder="Please select" (ngModelChange)="onSelectedChange()"></nz-tree-select> -->
 <button nz-button [nzType]="'primary'" (click)="settingColumn()">
     <span>列设置</span>
 </button>
-<nz-modal [(nzVisible)]="isVisible" nzTitle="列设置" (nzOnCancel)="onCancel()" (nzOnOk)="onConfirm()">
+<nz-modal [(nzVisible)]="isVisible" [nzFooter]="footerOptions" nzTitle="列设置" (nzOnCancel)="onCancel()"
+    (nzOnOk)="onConfirm()">
     <ng-container *nzModalContent>
-        <nz-tree-select style="width: 250px" [ngModel]="selected" [nzNodes]="nodes" nzShowSearch nzCheckable
-            nzPlaceHolder="Please select" (ngModelChange)="onSelectedChange($event)"></nz-tree-select>
+        <nz-tree-select style="width: 100%" nzDropdownClassName="st-table-column-toggler-wrapper" [ngModel]="selected"
+            [nzNodes]="nodes" nzShowSearch nzCheckable nzPlaceHolder="请选择" (ngModelChange)="onSelectedChange($event)"
+            #tree>
+        </nz-tree-select>
     </ng-container>
 </nz-modal>

@@ -105,7 +105,13 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.toggler.startup({ table: this.st, columns: this.columns });
+    this.toggler.startup({
+      table: this.st, columns: this.columns,
+      visibles: {
+        street: false,
+        village: false
+      }
+    });
   }
 
   toggleAreaColumnVisible() {
@@ -118,5 +124,10 @@ export class DashboardComponent implements OnInit {
 
   hideAreaColumn() {
     this.toggler.toggleColumnVisible('area', false);
+  }
+
+  getCurrentColumns() {
+    const columns = this.toggler.getColumns();
+    console.log('columns:', columns);
   }
 }

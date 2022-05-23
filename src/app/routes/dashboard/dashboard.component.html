@@ -5,9 +5,10 @@
   <button class="btn" nz-button nzType="primary" (click)="toggleAreaColumnVisible()">切换区域列的显示</button>
   <button class="btn" nz-button (click)="showAreaColumn()">显示区域列</button>
   <button class="btn" nz-button (click)="hideAreaColumn()">隐藏区域列</button>
+  <button class="btn" nz-button (click)="getCurrentColumns()">获取当前列的信息</button>
 </div>
 
-<st #st [data]="[]" [columns]="columns">
+<st #st [data]="[]">
   <ng-template st-row="customTitle" type="title" let-c>
     {{ c.title.text }}
     <span nz-dropdown [nzDropdownMenu]="menuTpl" nzTrigger="click" [nzClickHide]="false" nzPlacement="bottomRight">
