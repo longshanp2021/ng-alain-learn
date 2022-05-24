@@ -18,7 +18,7 @@ import { ModalButtonOptions } from 'ng-zorro-antd/modal';
 export class StTableColumnTogglerComponent {
 
   selected: Array<string> = [];
-  operatingSelected: Array<string> = [];
+  operatingSelected?: Array<string>;
   nodes: Array<any> = [];
   isVisible = false;
   footerOptions: Array<ModalButtonOptions> = [
@@ -66,6 +66,7 @@ export class StTableColumnTogglerComponent {
   }
 
   onConfirm() {
+    if (!this.operatingSelected) { return; }
     const visibleColumnsStr = JSON.stringify(this.visibleColumns);
     this.isVisible = false;
     let cols: Array<string> = [];
